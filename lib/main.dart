@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -44,11 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MyWidget'),
-      ),
-      body: const Center(
-        child: Text('MyWidget'),
+      backgroundColor: Color.fromARGB(255, 21, 144, 210),
+      body: Center(
+        child: Container(
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.circular(300),
+            image: DecorationImage(
+              image: AssetImage('assets/images/logo.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
       ),
     );
   }
