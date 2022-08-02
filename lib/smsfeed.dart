@@ -34,7 +34,7 @@ class _SmsFeedState extends State<SmsFeed> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Read SMS Inbox"),
+          title: Text("Yanvalou APP"),
           backgroundColor: Colors.blue,
         ),
         body: SingleChildScrollView(
