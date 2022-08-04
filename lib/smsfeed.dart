@@ -11,12 +11,13 @@ class SmsFeed extends StatefulWidget {
 }
 
 class _SmsFeedState extends State<SmsFeed> {
-  SmsQuery query = new SmsQuery();
-  late List<SmsMessage> allmessages;
+  SmsQuery query = SmsQuery();
+  List<SmsMessage> allmessages = [];
 
   @override
   void initState() {
     super.initState();
+    getAllMessages();
   }
 
   void getAllMessages() async {
@@ -36,6 +37,7 @@ class _SmsFeedState extends State<SmsFeed> {
         appBar: AppBar(
           title: Text("Yanvalou APP"),
           backgroundColor: Colors.blue,
+
         ),
         body: SingleChildScrollView(
           child: Container(
