@@ -23,6 +23,7 @@ class _SmsFeedState extends State<SmsFeed> {
   void getAllMessages() async {
     List<SmsMessage> messages = await query.querySms(
       kinds: [SmsQueryKind.Inbox],
+      address: "Mon Cash",
       //filter Inbox, sent or draft messages
       count: 10, //number of sms to read
     );
@@ -37,7 +38,7 @@ class _SmsFeedState extends State<SmsFeed> {
         appBar: AppBar(
           title: Text("Yanvalou APP"),
           backgroundColor: Colors.blue,
-
+          automaticallyImplyLeading: false,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -61,7 +62,7 @@ class _SmsFeedState extends State<SmsFeed> {
                           child: ListTile(
                         leading: Icon(Icons.message),
                         title: Padding(
-                            child: Text(messageone.address + " (" + type + ")"),
+                            child: Text(messageone.address),
                             padding: EdgeInsets.only(
                                 bottom: 10, top: 10)), // printing address
                         subtitle: Padding(
