@@ -47,32 +47,13 @@ class _SmsFeedState extends State<SmsFeed> {
                 ? Center(child: CircularProgressIndicator())
                 : Column(
                     children: allmessages.map((messageone) {
-                    //populating children to column using map
-                    String type =
-                        "NONE"; //get the type of message i.e. inbox, sent, draft
-                    if (messageone.kind == SmsMessageKind.Received) {
-                      type = "Inbox";
-                    } else if (messageone.kind == SmsMessageKind.Sent) {
-                      type = "Outbox";
-                    } else if (messageone.kind == SmsMessageKind.Draft) {
-                      type = "Draft";
-                    }
                     return Container(
-                      child: Card(
-                          child: ListTile(
-                        leading: Icon(Icons.message),
-                        title: Padding(
-                            child: Text(messageone.address),
-                            padding: EdgeInsets.only(
-                                bottom: 10, top: 10)), // printing address
-                        subtitle: Padding(
-                            child: Text(messageone.date.toString() +
-                                "\n" +
-                                messageone.body),
-                            padding: EdgeInsets.only(
-                                bottom: 10,
-                                top: 10)), //pringint date time, and body
-                      )),
+                      child: Column(
+                        children: <Widget>[
+                          Text(messageone.address),
+                          Text(messageone.body.substring(0, 11)),
+                        ],
+                      ),
                     );
                   }).toList()),
           ),
