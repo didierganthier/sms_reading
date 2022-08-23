@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:sms/sms.dart';
+import 'package:sms_maintained/sms.dart';
 
 class SmsFeed extends StatefulWidget {
   const SmsFeed({Key? key}) : super(key: key);
@@ -50,8 +50,12 @@ class _SmsFeedState extends State<SmsFeed> {
                     return Container(
                       child: Column(
                         children: <Widget>[
-                          Text(messageone.address),
-                          Text(messageone.body.substring(0, 11)),
+                          Card(
+                            child: ListTile(
+                              title: Text(messageone.body.substring(0, 11)),
+                              subtitle: Text(messageone.address),
+                            ),
+                          ),
                         ],
                       ),
                     );
